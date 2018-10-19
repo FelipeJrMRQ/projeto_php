@@ -74,6 +74,13 @@ function validar_data($data){
     $dia = $dados[0];
     $mee = $dados[1];
     $ano = $dados[2];
-    $resultado = checkdate($dia, $mee, $ano);
+    if($dia != ""){
+        if($mee != ""){
+            if($ano != ""){
+                 $resultado = checkdate($dia, $mee, $ano);
+            }
+        }
+    }
+   
     return $resultado;
 }
