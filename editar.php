@@ -35,6 +35,7 @@ if(isset($_POST['nome'] ) && $_POST['nome'] != ''){
 	}else{
 		$tarefa['concluida'] = 0;
 	}
+        //Testde de comite php felipe Marques
 
 	editar_tarefa($conexao, $tarefa);
 }
