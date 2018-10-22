@@ -23,6 +23,7 @@ function buscar_tarefas($conexao) {
     }
     return $tarefas;
 }
+
 //felipe
 
 function gravar_tarefa($conexao, $tarefa) {
