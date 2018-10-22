@@ -52,13 +52,13 @@ if (tem_post()) {
 $lista_tarefas = buscar_tarefas($conexao);
 
 
-  $tarefa = array(
-  'id'            => 0 ,
-  'nome'          => '',
-  'descricao'     => '',
-  'prazo'         => '',
-  'prioridade'    => 1 ,
-  'concluida'     => '',
-  );
+$tarefa = array(
+    'id' => 0,
+    'nome' => '',
+    'descricao' => '',
+    'prazo' => '',
+    'prioridade' => 1,
+    'concluida' => '',
+);
 
 include "template.php";

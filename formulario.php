@@ -5,7 +5,7 @@
     <label>Tarefa:</label>
     <br>
     <?php if ($tem_erros && isset($erros_validacao['nome'])) : ?>
-        <span style="color: red">
+        <span class="erro">
             <?php echo $erros_validacao['nome'] ?>
         </span>
         <br>
@@ -22,7 +22,7 @@
     <br>
     <label>Prazo<br>
         <?php if ($tem_erros && isset($erros_validacao['prazo'])) : ?>
-            <span style="color: red">
+            <span class="erro">
                 <?php echo $erros_validacao['prazo']; ?>
             </span>
         <?php endif; ?>
