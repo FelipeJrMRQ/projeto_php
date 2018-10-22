@@ -45,7 +45,7 @@ if(tem_post()){
 	}
         
 
-	if(!$tem_erros){
+	if(! $tem_erros){
             editar_tarefa($conexao, $tarefa);
             header('Location: tarefas.php');
             die();

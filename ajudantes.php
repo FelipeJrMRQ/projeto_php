@@ -71,24 +71,17 @@ function validar_data($data) {
     $padrao = '/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/';
     $resultado = preg_match($padrao, $data);
 
-    if (!$resultado) {
+    if (! $resultado) {
         return false;
     }
 
     $dados = explode("/", $data);
 
     $dia = $dados[0];
-    $mee = $dados[1];
+    $mes = $dados[1];
     $ano = $dados[2];
-
-
-    if ($dia != '') {
-        if ($mee != '') {
-            if ($ano != '') {
-                $resultado = checkdate($dia, $mee, $ano);
-            }
-        }
-    }
+    
+    $resultado = checkdate($mes, $dia, $ano);
 
     return $resultado;
 }
