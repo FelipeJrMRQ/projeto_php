@@ -76,11 +76,19 @@ function validar_data($data) {
     }
 
     $dados = explode("/", $data);
+
     $dia = $dados[0];
-    $mes = $dados[1];
+    $mee = $dados[1];
     $ano = $dados[2];
 
-    $resultado = checkdate($mes, $dia, $ano);
+
+    if ($dia != '') {
+        if ($mee != '') {
+            if ($ano != '') {
+                $resultado = checkdate($dia, $mee, $ano);
+            }
+        }
+    }
 
     return $resultado;
 }

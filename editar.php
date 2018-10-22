@@ -18,7 +18,7 @@ if(tem_post()){
             $tarefa['nome'] = $_POST['nome'];
         }else{
             $tem_erros = true;
-            $erros_validacao['nome'] = "O nome da tarefa é obrigatório";
+            $erros_validacao['nome'] = 'O nome da tarefa é obrigatório';
         }
 
 	if(isset($_POST['descricao'])){
@@ -32,7 +32,7 @@ if(tem_post()){
                 $tarefa['prazo'] = traduz_data_para_banco($_POST['prazo']);
             }else{
                 $tem_erros = true;
-                $erros_validacao['prazo'] = "A data digitada é inválida!";
+                $erros_validacao['prazo'] = 'A data digitada é inválida!';
             }
         }
 
