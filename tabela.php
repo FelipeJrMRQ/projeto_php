@@ -1,4 +1,7 @@
-<!-- Tabela exibita com os dados das tarefas cadastradas -->
+<!--
+O códido abaixo é responsável pela exibição dos dados na tebela.
+
+-->
 <table class="felipe">
     <thead>
         <tr>
@@ -13,7 +16,7 @@
     <?php foreach ($lista_tarefas as $tarefa) : ?>
         <tr>
             <td>
-                <a href="tarefa.php?id=<?php echo $tarefa['id']?>">
+                <a href="tarefa.php?id=<?php echo $tarefa['id'] ?>">
                     <?php echo $tarefa['nome']; ?> 
                 </a>
             </td>
