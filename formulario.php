@@ -1,7 +1,6 @@
 <form method="POST" >	
     <input type="hidden" name="id" value="<?php echo $tarefa['id']; ?> "/>
 
-    <br>
     <label>Tarefa:</label>
     <br>
     <?php if ($tem_erros && isset($erros_validacao['nome'])) : ?>
@@ -20,14 +19,14 @@
     </textarea>
 
     <br>
-    <label>Prazo<br>
-        <?php if ($tem_erros && isset($erros_validacao['prazo'])) : ?>
-            <span class="erro">
-                <?php echo $erros_validacao['prazo']; ?>
-            </span>
-        <?php endif; ?>
-    </label>
+    <label>Prazo</label>
     <br>
+    <?php if ($tem_erros && isset($erros_validacao['prazo'])) : ?>
+        <span class="erro">
+            <?php echo $erros_validacao['prazo']; ?>
+        </span>
+        <br>
+    <?php endif; ?>
     <input type="text" name="prazo" value="<?php echo traduz_data_para_exibir($tarefa['prazo']) ?>"/>
 
     <br>
