@@ -67,11 +67,19 @@ function tem_post() {
     }
 }
 
+/**
+ * Realiza a validação da data para o formato nacional
+ * dd/mm/aaaa
+ * @param type $data
+ * @return boolean
+ * O retorno será verdareiro ou falso de acordo com os
+ * parametros passados pelo usuário
+ */
 function validar_data($data) {
     $padrao = '/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/';
     $resultado = preg_match($padrao, $data);
 
-    if (! $resultado) {
+    if (!$resultado) {
         return false;
     }
 
@@ -80,8 +88,25 @@ function validar_data($data) {
     $dia = $dados[0];
     $mes = $dados[1];
     $ano = $dados[2];
-    
+
     $resultado = checkdate($mes, $dia, $ano);
 
     return $resultado;
 }
+
+/**
+ * Esta função recebe um anexo e o salva em
+ * uma pasta no servidor
+ * este $anexo pode ser do tipo (zip/pdf)
+ */
+function tratar_anexo($anexo) {
+    $padrao = '/^.+(\.pdf|\.zip)$/';
+    $resultado = preg_match($padrao, $anexo['name']);
+
+    if (!$resultado) {
+        return false;
+    }
+    move_uploaded_file($anexo['tmp_name'], "anexos/{$anexo['name']}");
+    return true;
+}
+

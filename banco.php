@@ -66,3 +66,26 @@ function remover_tarefa($conexao, $id) {
     $sqlRemover = "DELETE FROM tarefas WHERE id = {$id}";
     mysqli_query($conexao, $sqlRemover);
 }
+
+function gravar_anexo($conexao, $anexo) {
+    $sqlGravar = "INSERT INTO anexo (tarefa_id, nome, arquivo) VALUES({$anexo['tarefa_id']},'{$anexo['nome']}','{$anexo['arquivo']}')";
+    mysqli_query($conexao, $sqlGravar);
+}
+
+function buscar_anexos($conexao, $tarefa_id) {
+    $sqlConsulta = "SELECT * FROM anexo WHERE tarefa_id = {$tarefa_id}";
+    $resultado = mysqli_query($conexao, $sqlConsulta);
+    
+    $anexos = array();
+
+    while ($anexo = mysqli_fetch_assoc($resultado)) {
+        /*
+         * Sempre que for necessário atribuir valores a um
+         * Array e necessário utilizar o [] na frente das váriaveis
+         * de array()
+         */
+        $anexos[] = $anexo;
+    }
+    
+    return $anexos;
+}

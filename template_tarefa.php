@@ -25,10 +25,28 @@ and open the template in the editor.
         </p>
         <P>
             <strong>Prioridade:</strong>
-            <?php echo traduz_prioridade($tarefa['prioridade']) ?>
+            <?php echo traduz_prioridade($tarefa['prioridade']); ?>
         </P>
         <h3>Anexos:_</h3>
-
+        <?php if (count($lista_anexos) > 0) : ?>
+            <table>
+                <tr>
+                    <th>Arquivos</th>
+                    <th>Opções</th>
+                </tr>
+                <?php foreach ($lista_anexos as $anexo): ?>
+                <tr>    
+                    <td>
+                        <a href="anexos/<?php echo $anexo['arquivo']; ?>" target="_blank">
+                            Download
+                        </a>
+                    </td>
+                </tr>
+                <?php endforeach;?>
+            </table>
+        <?php else : ?>
+            <p>Não há anexos para esta teraf</p>
+        <?php endif; ?>
         <form action="" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Novo anexo:</legend>
@@ -39,10 +57,9 @@ and open the template in the editor.
                             <?php echo $erros_validacao['anexo']; ?>
                         </span>
                     <?php endif; ?>
-                    
                     <input type="file" name="anexo">
                 </label>
-                
+
                 <input type="submit" value="Cadastrar"/>
             </fieldset>
         </form>

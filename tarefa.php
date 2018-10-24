@@ -31,6 +31,7 @@ if(tem_post()){
 
 //Realiza a busca de uma única tarefa
 $tarefa = buscar_tarefa($conexao, $_GET['id']);
+$lista_anexos = buscar_anexos($conexao, $_GET['id']);
 
 include 'template_tarefa.php';
 
